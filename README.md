@@ -11,7 +11,7 @@ This repository contains an implementation of event-driven control network based
 1. Install **node-red-contrib-fuzzy** package via [Palette Manager](https://nodered.org/docs/user-guide/editor/palette/manager)
 2. [Import](https://nodered.org/docs/user-guide/editor/workspace/import-export)  the test flow [test/flow.js](./test/flow.js) template and modify
 ![Node-RED TS-FIS](nrfis.png)
-3. Create a test plot surface with [test/surface/plot.html](./test/surface/plot.html) open in a web browser. We assume you running Node-RED on your computer.
+3. Create a test plot surface by opening [http://127.0.0.1:1880/plot](http://127.0.0.1:1880/plot) in your browser. If Node-RED is not running on your computer change the URL.
 ![Surface Plot](surface_plot.png)
 
 ## Nodes
