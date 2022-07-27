@@ -4,16 +4,15 @@
 
 ### Event-driven Takagi-Sugeno Fuzzy Inference System implementation for Node-RED
 
-This repository contains an implementation of event-driven control network based Takagi-Sugeno Fuzzy Inference System in Node-RED. For furhter information please find the  [publication](https://www.researchgate.net/publication/342054388_Event-driven_Fuzzy_Inference_System_Implementation_in_Node-RED) on ResearchGate.
-
-
-![Node-RED TS-FIS](nrfis.png)
+This repository contains an implementation of event-driven control network based Takagi-Sugeno Fuzzy Inference System in Node-RED. The Node-RED implementation based on the idea that the Takagi-Sugeno Fuzzy Inference System can be represented as a network-like model and implemented as a event driven control network. For furhter information please find the  [publication](https://www.researchgate.net/publication/342054388_Event-driven_Fuzzy_Inference_System_Implementation_in_Node-RED) on ResearchGate.
 
 ##  Quick Start
 
 1. Install **node-red-contrib-fuzzy** package via [Palette Manager](https://nodered.org/docs/user-guide/editor/palette/manager)
-2. Import the test flow [test/flow.js](./test/flow.js) template and modify
+2. [Import](https://nodered.org/docs/user-guide/editor/workspace/import-export)  the test flow [test/flow.js](./test/flow.js) template and modify
+![Node-RED TS-FIS](nrfis.png)
 3. Create a test plot surface with [test/surface/plot.html](./test/surface/plot.html) using WebSockets
+![Surface Plot](surface_plot.png)
 
 ## Nodes
 The nodes provided by this package can be used to implement an event driven TS-FIS. 
