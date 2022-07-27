@@ -1,0 +1,46 @@
+<script type="text/javascript">
+    RED.nodes.registerType('aggregation',{
+        category: 'Fuzzy Logic',
+        color: '#E9967A',
+        defaults: {
+            name: {value:""},            
+            duplicate: {value: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "aggregation.png",
+        label: function() {
+            return this.name||"aggregation";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="aggregation">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="aggregation">
+    <p>Aggregation node</p>
+    <p>The aggregation node is calculating the final output of the event-driven FIS network from the weighted average of the aggregation of all the singletons. The aggregation node sends an output message when receive an input message.</p>
+    <h2>Output</h2>
+    <p>The output payload contains the output value and the input values too e.g.:</p>
+    <pre>
+{
+  "output": 1.25,
+  "input": [
+    {
+      "id": "x1",
+      "value": 1
+    },
+    {
+      "id": "x2",
+      "value": 1
+    }
+  ]
+}
+    </pre>
+
+</script>

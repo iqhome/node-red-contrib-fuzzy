@@ -1,0 +1,24 @@
+{
+  "name": "fuzzy",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "node-red" : {
+        "nodes": {   
+            "input": "membership/input.js",  
+            "grade": "membership/grade.js",           
+            "reverse_grade": "membership/reverse_grade.js",        
+            "triangle": "membership/triangle.js",           
+            "trapezoid": "membership/trapezoid.js",      
+            "and": "rule/and.js",            
+            "or": "rule/or.js",              
+            "not": "rule/not.js",      
+            "aggregation": "output/aggregation.js",            
+            "implication": "output/implication.js"
+        }
+    }
+}

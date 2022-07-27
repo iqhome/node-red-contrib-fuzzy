@@ -1,0 +1,31 @@
+<script type="text/javascript">
+    RED.nodes.registerType('outmf',{
+        category: 'Fuzzy Logic',
+        color: '#FDF0C2',
+        defaults: {
+            name: {value:""},
+            constant: {value: 0.5}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "function.png",
+        label: function() {
+            return this.name||"outmf";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="outmf">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+     <div class="form-row">
+        <label for="node-input-constant"><i class="icon-tag"></i> Membership constant</label>
+        <input type="number" min="0" max="1" step="0.01" id="node-input-constant" placeholder="" value="0.5">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="outmf">
+    <p>A simple node that converts incoming message into measured values.</p>
+</script>

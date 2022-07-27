@@ -1,0 +1,62 @@
+<script type="text/javascript">
+    RED.nodes.registerType('trapezoid',{
+        category: 'Fuzzy Logic',
+        color: '#DEB887',
+        defaults: {
+            name: {value:""},
+            x0: {value: 0.2},
+            x1: {value: 0.4},
+            x2: {value: 0.6},
+            x3: {value: 0.8}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "trapezoid.png",
+        label: function() {
+            return this.name||"trapezoid";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="trapezoid">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-x0"><i class="icon-tag"></i> x0</label>
+        <input type="number" step="0.01" id="node-input-x0" value="0.2">
+    </div>
+    <div class="form-row">
+        <label for="node-input-x1"><i class="icon-tag"></i> x1</label>
+        <input type="number" step="0.01" id="node-input-x1" value="0.4">
+    </div>
+    <div class="form-row">
+        <label for="node-input-x2"><i class="icon-tag"></i> x2</label>
+        <input type="number" step="0.01" id="node-input-x2" value="0.6">
+    </div>
+    <div class="form-row">
+        <label for="node-input-x3"><i class="icon-tag"></i> x3</label>
+        <input type="number" step="0.01" id="node-input-x3" value="0.8">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="trapezoid">
+    <p>Trapezoid membership function node.</p>
+    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" version="1.1">
+   <rect width="200" height="100" stroke="black" stroke-width="2" fill="none"></rect>
+   <line x1="10" y1="80" x2="40" y2="80" style="stroke:rgb(255,0,0);stroke-width:2"></line>
+   <line x1="40" y1="80" x2="80" y2="20" style="stroke:rgb(255,0,0);stroke-width:2"></line>
+   <line x1="80" y1="20" x2="120" y2="20" style="stroke:rgb(255,0,0);stroke-width:2"></line>
+   <line x1="120" y1="20" x2="160" y2="80" style="stroke:rgb(255,0,0);stroke-width:2"></line>
+   <line x1="160" y1="80" x2="190" y2="80" style="stroke:rgb(255,0,0);stroke-width:2"></line>
+   <text x="35" y="93" fill="black" style="font-size: 12px;">x0</text>
+   <text x="75" y="93" fill="black" style="font-size: 12px;">x1</text>
+   <text x="115" y="93" fill="black" style="font-size: 12px;">x2</text>
+   <text x="155" y="93" fill="black" style="font-size: 12px;">x3</text>
+   <line x1="40" y1="10" x2="40" y2="82" style="stroke:rgba(255,0,0, 0.6);stroke-width:1" stroke-dasharray="5 3"></line>
+   <line x1="80" y1="10" x2="80" y2="82" style="stroke:rgba(255,0,0, 0.6);stroke-width:1" stroke-dasharray="5 3"></line>
+   <line x1="120" y1="10" x2="120" y2="82" style="stroke:rgba(255,0,0, 0.6);stroke-width:1" stroke-dasharray="5 3"></line>
+   <line x1="160" y1="10" x2="160" y2="82" style="stroke:rgba(255,0,0, 0.6);stroke-width:1" stroke-dasharray="5 3"></line>
+</svg>
+</script>

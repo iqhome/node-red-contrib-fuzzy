@@ -1,0 +1,107 @@
+<script type="text/x-red" data-template-name="implication">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-constant"><i class="icon-tag"></i> Constant</label>
+        <input type="text" id="node-input-constant" value="0.5">
+    </div>
+    
+     <div class="form-row node-input-term-container-row">
+        <ol id="node-input-term-container"></ol>
+    </div>
+</script>
+
+
+<script type="text/javascript">
+    RED.nodes.registerType('implication', {
+        color: "#E2D96E",
+        category: 'Fuzzy Logic',
+        defaults: {
+            name: {value:""},
+            constant: {value:0.5},
+            terms:{value:[]},
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "function.png",
+        label: function() {
+            return this.name||"implication";
+        },
+        oneditprepare: function() {
+
+            function resizeRule(term) {
+                var newWidth = term.width();
+                term.find('.red-ui-typedInput').typedInput("width",newWidth-110);
+            }
+            $('#node-input-term-container').css('min-height','300px').css('min-width','450px').editableList({
+                addItem: function(container, i, opt) {
+
+                    var row2 = $('<div/>',{style:"margin-top:8px;"}).appendTo(container);
+                    var row3 = $('<div/>',{style:"margin-top:8px;"}).appendTo(container);
+                    
+                    $('<div/>',{style:"display:inline-block;text-align:right; width:100px; padding-right:10px; box-sizing:border-box;"})
+                        .text("ID")
+                        .appendTo(row2);
+                    var varId = $('<input/>',{class:"node-input-term-property-id",type:"text"})
+                        .appendTo(row2);
+                    var row3_1 = $('<div/>').appendTo(row3);
+                    $('<div/>',{style:"display:inline-block;text-align:right; width:100px; padding-right:10px; box-sizing:border-box;"})
+                        .text("Coefficient")
+                        .appendTo(row3_1);
+                    var varCoeff = $('<input/>',{class:"node-input-term-property-coeff",type:"text"})
+                        .appendTo(row3_1);
+
+                    var newWidth = $("#node-input-term-container").width();
+                    resizeRule(container);
+
+
+                    varId.val(opt.id)
+                    varCoeff.val(opt.coeff)
+                },
+                resizeItem: resizeRule,
+                removable: true,
+                sortable: true
+            });
+            if (!this.terms) {             
+
+                this.terms = [];
+            }
+            for (var i=0; i<this.terms.length; i++) {
+                var opt = this.terms[i];
+                $("#node-input-term-container").editableList('addItem',opt);
+            }
+        },
+        oneditsave: function() {
+            var terms = $("#node-input-term-container").editableList('items');
+            var node = this;
+            node.terms= [];
+            terms.each(function(i) {
+                var term = $(this);
+                var r = {
+                    id: term.find(".node-input-term-property-id").val(),
+                    coeff: term.find(".node-input-term-property-coeff").val()
+                }
+                node.terms.push(r);
+            });
+        },
+        oneditresize: function(size) {
+            var rows = $("#dialog-form>div:not(.node-input-term-container-row)");
+            var height = size.height;
+            for (var i=0; i<rows.size(); i++) {
+                height -= $(rows[i]).outerHeight(true);
+            }
+            var editorRow = $("#dialog-form>div.node-input-term-container-row");
+            height -= (parseInt(editorRow.css("marginTop"))+parseInt(editorRow.css("marginBottom")));
+            $("#node-input-term-container").editableList('height',height);
+        }
+    });
+</script>
+
+
+<script type="text/x-red" data-help-name="implication">
+    <p>Implication node</p>
+    <p>Implication function can be set up as a constant and adding variables with a coefficient.</p>
+</script>

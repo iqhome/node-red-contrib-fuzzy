@@ -1,0 +1,41 @@
+<script type="text/javascript">
+    RED.nodes.registerType('or',{
+        category: 'Fuzzy Logic',
+        color: '#C7E9C0',
+        defaults: {
+            name: {value:""},
+            minin: {value: 2},
+            weight: {value: 1.0}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "or.png",
+        label: function() {
+            return this.name||"or";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="or">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+     <div class="form-row">
+        <label for="node-input-minin"><i class="icon-tag"></i> Min. inputs</label>
+        <input type="number" id="node-input-minin" placeholder="" value="2">
+    </div>
+     <div class="form-row">
+        <label for="node-input-weight"><i class="icon-tag"></i> Weight</label>
+        <input type="number" id="node-input-weight" min="0" max="1.0" step="0.01" placeholder="1.0">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="or">
+    <p>Or Fuzzy operator</p>
+    <p>S-norm max(µ<sub>x1</sub>,µ<sub>x2</sub>,µ<sub>x3</sub>,...)</p>
+    <h1>Min. inputs</h1>
+    <p>Number of minimium inputs</p>
+    <h1>Weigth</h1>
+    <p>Weigth of the firing rule [0,1]</p>
+</script>

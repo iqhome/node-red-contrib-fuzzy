@@ -1,0 +1,32 @@
+<script type="text/javascript">
+    RED.nodes.registerType('input',{
+        category: 'Fuzzy Logic',
+        color: '#DEB887',
+        defaults: {
+            name: {value:""},
+            nid: {value: this.nid || ""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "arrow-in.png",
+        label: function() {
+            return this.name||"input";
+        }
+    });
+
+</script>
+
+<script type="text/x-red" data-template-name="input">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-nid"><i class="icon-tag"></i> ID</label>
+        <input type="text"  id="node-input-nid" placeholder="ID">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="input">
+    <p>A simple node that converts incoming message into measured values.</p>
+</script>
