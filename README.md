@@ -14,8 +14,7 @@ This repository contains an implementation of event-driven control network based
 3. Create a test plot surface by opening [http://127.0.0.1:1880/plot](http://127.0.0.1:1880/plot) in your browser. If Node-RED is not running on your computer change the URL.
 ![Surface Plot](surface_plot.png)
 
-## Nodes
-The nodes provided by this package can be used to implement an event driven TS-FIS. 
+## TS-FIS Nodes
 
 ### Input node 
 
