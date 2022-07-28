@@ -1,24 +1,45 @@
 {
-  "name": "fuzzy",
-  "version": "0.0.1",
-  "description": "",
+  "name": "node-red-contrib-fuzzy",
+  "version": "1.0.0",
+  "description": "Event-driven Takagi-Sugeno Fuzzy Inference System implementation for Node-RED",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
-  "node-red" : {
-        "nodes": {   
-            "input": "membership/input.js",  
-            "grade": "membership/grade.js",           
-            "reverse_grade": "membership/reverse_grade.js",        
-            "triangle": "membership/triangle.js",           
-            "trapezoid": "membership/trapezoid.js",      
-            "and": "rule/and.js",            
-            "or": "rule/or.js",              
-            "not": "rule/not.js",      
-            "aggregation": "output/aggregation.js",            
-            "implication": "output/implication.js"
-        }
+  "author": "Gergely Sebestyen",
+  "license": "MIT",
+  "node-red": {
+    "version": ">=2.0.0",
+    "nodes": {
+      "input": "membership/input.js",
+      "grade": "membership/grade.js",
+      "reverse_grade": "membership/reverse_grade.js",
+      "triangle": "membership/triangle.js",
+      "trapezoid": "membership/trapezoid.js",
+      "and": "rule/and.js",
+      "or": "rule/or.js",
+      "not": "rule/not.js",
+      "aggregation": "output/aggregation.js",
+      "implication": "output/implication.js"
     }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iqhome/node-red-contrib-fuzzy.git"
+  },
+  "keywords": [
+    "node-red",
+    "fuzzy",
+    "fuzzy",
+    "inference",
+    "system",
+    "event-drive",
+    "ts-fis"
+  ],
+  "bugs": {
+    "url": "https://github.com/iqhome/node-red-contrib-fuzzy/issues"
+  },
+  "homepage": "https://github.com/iqhome/node-red-contrib-fuzzy#readme"
 }
